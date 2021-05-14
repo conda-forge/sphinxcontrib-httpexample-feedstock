@@ -1,5 +1,5 @@
 {% set name = "sphinxcontrib-httpexample" %}
-{% set version = "0.10.3" %}
+{% set version = "0.11.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 77ed3599a1a8e3eff414548066c8b9b7d4ca43694626c33c16a7a443d0d66512
+  sha256: c1475cb8c27afd2ece0f076baab852ab8f07512606550e9d1a08ea22738a4187
 
 build:
   noarch: python
   number: 0
-  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   host:
@@ -34,8 +34,8 @@ about:
   home: https://github.com/collective/sphinxcontrib-httpexample
   license: GPL-2.0
   license_family: GPL
-  license_file: '{{ environ["RECIPE_DIR"] }}/LICENSE'
-  summary: 'Adds example directive for sphinx-contrib httpdomain.'
+  license_file: {{ environ["RECIPE_DIR"] }}/LICENSE
+  summary: Adds example directive for sphinx-contrib httpdomain.
   description: |
     sphinxcontrib-httpexample enhances sphinxcontrib-httpdomain, a Sphinx domain
     extension for describing RESTful HTTP APIs in detail, with a simple call
