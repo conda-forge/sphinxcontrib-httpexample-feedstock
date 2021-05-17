@@ -16,11 +16,11 @@ build:
 
 requirements:
   host:
-    - python
+    - python >=2
     - pip
     - pytest-runner
   run:
-    - python
+    - python >=2
     - astunparse
     - docutils
     - sphinx
