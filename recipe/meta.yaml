@@ -1,5 +1,5 @@
 {% set name = "sphinxcontrib-httpexample" %}
-{% set version = "0.11.0" %}
+{% set version = "1.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: c1475cb8c27afd2ece0f076baab852ab8f07512606550e9d1a08ea22738a4187
+  sha256: 2b0e24071e97be7a9580af8005a3e6a643df2f4277307c327274f9de669ce854
 
 build:
   noarch: python
