@@ -18,6 +18,7 @@ requirements:
   host:
     - python {{ python_min }}
     - pip
+    - setuptools
     - pytest-runner
   run:
     - python >={{ python_min }}
@@ -34,8 +35,7 @@ test:
 
 about:
   home: https://github.com/collective/sphinxcontrib-httpexample
-  license: GPL-2.0
-  license_family: GPL
+  license: 	GPL-2.0-only
   license_file: {{ environ["RECIPE_DIR"] }}/LICENSE
   summary: Adds example directive for sphinx-contrib httpdomain.
   description: |
