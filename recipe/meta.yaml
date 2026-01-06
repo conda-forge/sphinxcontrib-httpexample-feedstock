@@ -6,34 +6,36 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 05999d36dd4a91f1146a3c9f5cd1faf721b8960ba3d4ee6d951b1a80cec0ea8f
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   host:
-    - python >=2
+    - python {{ python_min }}
     - pip
+    - setuptools
     - pytest-runner
   run:
-    - python >=2
+    - python >={{ python_min }}
     - astunparse
     - docutils
     - sphinx
     - sphinxcontrib-httpdomain
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - sphinxcontrib
 
 about:
   home: https://github.com/collective/sphinxcontrib-httpexample
-  license: GPL-2.0
-  license_family: GPL
+  license: GPL-2.0-only
   license_file: {{ environ["RECIPE_DIR"] }}/LICENSE
   summary: Adds example directive for sphinx-contrib httpdomain.
   description: |
