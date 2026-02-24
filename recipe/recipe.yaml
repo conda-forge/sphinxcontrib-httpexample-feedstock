@@ -1,41 +1,42 @@
-{% set name = "sphinxcontrib-httpexample" %}
-{% set version = "2.0" %}
+schema_version: 1
+
+context:
+  name: sphinxcontrib-httpexample
+  version: 2.0
 
 package:
-  name: {{ name|lower }}
-  version: {{ version }}
+  name: ${{ name|lower }}
+  version: ${{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name | replace('-', '_') }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name | replace('-', '_') }}-${{ version }}.tar.gz
   sha256: 881881e0125e0f75c15e46564a82252dd8a68c499348d2d9e42cd52c213a58ad
 
 build:
+  number: 2
   noarch: python
-  number: 1
-  script: {{ PYTHON }} -m pip install . --no-deps -vv
+  script: ${{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   host:
-    - python {{ python_min }}
+    - python ${{ python_min }}.*
     - pip
     - hatchling
     - pytest-runner
   run:
-    - python >={{ python_min }}
+    - python >=${{ python_min }}
     - importlib-metadata
     - importlib-resources
     - docutils
     - sphinx
     - sphinxcontrib-httpdomain
 
-test:
-  requires:
-    - python {{ python_min }}
-  imports:
-    - sphinxcontrib
-
+tests:
+  - python:
+      imports:
+        - sphinxcontrib
+      python_version: ${{ python_min }}.*
 about:
-  home: https://github.com/collective/sphinxcontrib-httpexample
   license: GPL-2.0-only
   license_file: LICENSE
   summary: Adds example directive for sphinx-contrib httpdomain.
@@ -45,8 +46,9 @@ about:
     example directive. The new directive provided by this extension generates
     RESTful HTTP API call examples for different tools from a single HTTP
     request example.
-  doc_url: http://sphinxcontrib-httpexample.readthedocs.io/
-  dev_url: https://github.com/collective/sphinxcontrib-httpexample
+  homepage: https://github.com/collective/sphinxcontrib-httpexample
+  repository: https://github.com/collective/sphinxcontrib-httpexample
+  documentation: http://sphinxcontrib-httpexample.readthedocs.io/
 
 extra:
   recipe-maintainers:

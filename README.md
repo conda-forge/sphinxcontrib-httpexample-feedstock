@@ -19,7 +19,6 @@ example directive. The new directive provided by this extension generates
 RESTful HTTP API call examples for different tools from a single HTTP
 request example.
 
-
 Current build status
 ====================
 
