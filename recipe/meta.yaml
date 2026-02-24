@@ -11,7 +11,7 @@ source:
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
@@ -37,7 +37,7 @@ test:
 about:
   home: https://github.com/collective/sphinxcontrib-httpexample
   license: GPL-2.0-only
-  license_file: {{ environ["RECIPE_DIR"] }}/LICENSE
+  license_file: LICENSE
   summary: Adds example directive for sphinx-contrib httpdomain.
   description: |
     sphinxcontrib-httpexample enhances sphinxcontrib-httpdomain, a Sphinx domain
